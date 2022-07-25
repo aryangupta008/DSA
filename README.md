@@ -1,2 +1,2 @@
-# Codeforces
-Solutions of all codeforces problems
+# DSA
+Solutions to all DSA questions that I've practiced till now.
