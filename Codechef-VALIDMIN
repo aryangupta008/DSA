@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    int a1,a2,a3;
+    while(t--)
+    {
+        int a,b,c;
+        cin>>a>>b>>c;
+        a1=a<b?a:b;
+        a2=a<c?a:c;
+        a3=b<c?b:c;
+       if(a1==a2)
+       {
+           if(a2==a3)
+           {
+               if(a3==a1)
+               cout<<"YES"<<endl;
+              
+               else
+           cout<<"NO"<<endl;
+           }
+           else
+           cout<<"NO"<<endl;
+       }
+        else
+           cout<<"NO"<<endl;
+    }
+}
