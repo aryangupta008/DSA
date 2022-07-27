@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define mp make_pair
+#define all(x) (x).begin(), (x).end()
+#define sz(x) ((ll)(x).size())
+
+#define loop(i, a, b) for (int i = a; i <= b; i++)
+#define ss second
+#define ff first
+int count(string s, char a)
+{
+    int kukl = 0;
+    for (auto i : s)
+    {
+        if (i == a)
+        {
+            kukl++;
+        }
+    }
+    return kukl;
+}
+void solve()
+{
+    int n, k;
+    string s;
+    cin >> n >> k >> s;
+
+    map<char, int> mp;
+
+    mp['1'] = count(all(s), '1');
+    mp['0'] = count(all(s), '0');
+
+    int cc = max(mp['0'], mp['1']) - min(mp['0'], mp['1']);
+
+    int pl = 0;
+    if (cc % k)
+    {
+        pl++;
+    }
+
+    cc /= k;
+    cc += pl;
+
+    cout << cc << endl;
+}
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+    return 0;
+}
