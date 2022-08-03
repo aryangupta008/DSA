@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int b,a;
+        cin>>b>>a;
+        if(a<b){
+        cout<<-1<<endl;
+        continue;
+        }
+        int i;
+        cout<<(a-b+1)<<" ";
+        for( i=1;i<=b;i++)
+        {
+            if(i!=(a-b+1))
+            cout<<i<<" ";
+        }
+        cout<<endl;
+    }
+}
