@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define vi vector<int>
+#define v2i vector<vi>
+#define ii pair<int, int>
+#define F first
+#define S second
+#define len(s) (int)s.size()
+#define quicksilver ios_base::sync_with_stdio(0), cin.tie(0)
+
+
+void perm(int n)
+{
+   
+        vi a(n);
+        for (int i = 0; i < n; i++)
+            a[i] = i + 1;
+
+        int m = n;
+        cout << m << '\n';
+        int idx1 = 0;
+        while (m--)
+        {
+            for (auto x : a)
+                cout << x << ' ';
+            cout << '\n';
+
+            if (m)
+                swap(a[idx1], a[idx1 + 1]);
+            idx1++;
+        }
+}
+signed main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        perm(n);
+    }
+}
