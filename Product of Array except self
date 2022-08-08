@@ -1,0 +1,45 @@
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n=nums.size();
+        vector<int> output;
+        if(n<1)
+            return output; //base case;
+        int product =1;
+        for(int i=0;i<n;i++) // running loop from the left side
+        {
+        product*=nums[i];
+  /*multiplying from left side of the vector and updating the product
+    when i=0 nums[i]=1
+    product*=1*1
+    =>1 update into the 0th position of the array
+    
+    when i=1 nums[i]=2
+    product*=1*2;
+    =>2 update into the 1st position of the array
+    
+    when i=2 nums[i]=3
+    product*=2*3;
+    =>6 update into the 2nd position of the array
+    
+    when i=3 nums[i]=4
+    product*=6*4;
+    =>24 update into the 3rd position of the array
+    
+ */
+            output.push_back(product); //updating into the output vector
+        }
+        product=1; //now again initialzing product =1
+        for(int i=n-1;i>0;i--) // now running the loop from the right side
+        {
+        output[i]=output[i-1]*product; //updating the output array from right side and multiplying the product with it
+           
+            product*=nums[i]; // multiplying the current product from the nums[i]
+            //new array[24,24,12,4]
+        }
+        output[0]=product; // updating the first element of the output array i.e. output[0]=24
+        // new output array=[24,12,8,6];
+        
+        return output;
+    }
+};
