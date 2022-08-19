@@ -1,0 +1,39 @@
+Longest Common Prefix:
+It is the longest common prefix for an array of strings is the common prefix between 2 most dissimilar strings.
+
+For example, in the given array {“apple”, “ape”, “zebra”}, there is no common prefix because the 2 most dissimilar strings of the array “ape” and “zebra” do not share any starting characters.
+
+The idea is to sort the array of strings and find the common prefix of the first and last string of the sorted array.
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        int n=strs.size();
+        if(n==0)
+            return "";
+        
+        if(n==1)
+            return strs[0];
+        
+        sort(strs.begin(),strs.end());
+        
+         // Find the minimum length from
+        // first and last string
+        int en=min(strs[0].size(),strs[n-1].size());
+        
+        // Now the common prefix in first and
+        // last string is the longest common prefix
+        string first = strs[0], last = strs[n - 1];
+        int i=0;
+        while(i<en && first[i]==last[i])
+            i++;
+        
+        string pre=first.substr(0,i);
+        
+        return pre;
+        
+    }
+};
+Time Complexity: O(MAX * n * log n ) where n is the number of strings in the array and MAX is maximum number of characters in any string. Please note that comparison of two strings would take at most O(MAX) time and for sorting n strings, we would need O(MAX * n * log n ) time.
+
+Space Complexity: O(1)
