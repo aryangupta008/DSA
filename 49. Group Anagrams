@@ -1,0 +1,30 @@
+Hashmap
+We can solve it by key and value pairs
+We will sort the values of the map i.e. [eat,ate,tea] it all will become aet after sorting and similarly others
+We will store it in different key
+We will compare after sorting and if it's equal then it means that it is an anagram and will store all equal elements in same vector
+after sorting all we will create another vector to remove the key and return the output
+ for(auto itr=mymap.begin();itr!=mymap.end();++itr)
+            result.push_back(itr->second);
+For removal of key
+Time: O(nklongk) where k is the size of array
+
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string,vector<string>>mymap;
+        int n=strs.size();
+        string temp; // only to store the original string
+        for(int i=0;i<n;i++)
+        {
+            temp=strs[i];
+            sort(strs[i].begin(),strs[i].end());
+            mymap[strs[i]].push_back(temp);
+        }
+        vector<vector<string> > result;     //remove key and push it into vector for output
+        for(auto itr=mymap.begin();itr!=mymap.end();++itr)
+            result.push_back(itr->second);
+        
+        return result;
+    }
+};
