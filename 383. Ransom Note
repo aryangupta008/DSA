@@ -1,0 +1,26 @@
+Brute Force
+Approach:
+
+We will iterate over every character and then count the number of characters present in both the strings
+If count of ransomNote is greater then the magazine then we will return false
+std::count() returns number of occurrences of an element in a given range. Returns the number of elements in the range [first,last) that compare equal to val.
+
+// Returns count of occurrences of value in
+// range [begin, end]
+int count(Iterator first, Iterator last, T &val)
+
+first, last : Input iterators to the initial and final positions of the sequence of elements.
+val : Value to match
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+       for(char ch='a';ch<='z';ch++){
+            if(count(ransomNote.begin(), ransomNote.end(), ch)
+               > count(magazine.begin(), magazine.end(), ch)){
+                return false;
+            }
+        }
+        return true;
+
+    }
+};
